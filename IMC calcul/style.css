@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: white;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #333;
+    font-size: 32px;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+label {
+    font-size: 18px;
+    color: #555;
+    display: block;
+    margin: 20px 0 5px 0;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 18px;
+    font-size: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 30px 0 20px 0;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+.resultat {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f9f9f9;
+    border-left: 6px solid #4CAF50;
+    border-radius: 10px;
+    display: none;
+}
+
+.imc-valeur {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.imc-categorie {
+    font-size: 24px;
+    color: #4CAF50;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.conseils {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.conseils p {
+    margin: 15px 0;
+}
+
+.note {
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.note a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.note a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #d32f2f;
+    font-size: 18px;
+    margin: 15px 0;
+    text-align: center;
+}
