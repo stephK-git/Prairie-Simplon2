@@ -7,7 +7,7 @@
     <title>Veille du 24</title>
 </head>
 <body>
-    <h1>COLLECTE, NETTOYAGE ET ANALYSE DES DONNÉES</h1>
+    <h1>COLLECTE, NETTOYAGE ET ANALYSE DE DONNÉES</h1>
 
     <p class="intro">À l'ère du numérique, les données envahissent tous les secteurs : finance, santé, commerce, industrie. Face à ce déluge d'informations, savoir les collecter, les nettoyer et les analyser n'est plus un luxe réservé aux experts, mais une compétence incontournable pour toute organisation souhaitant rester compétitive.</p>
 
@@ -16,16 +16,14 @@
 
     <h3>1. L'extraction via API (Application Programming Interface)</h3>
     <p>C'est la méthode la plus fiable et la plus propre pour récupérer des données provenant de plateformes web (Twitter, Google Maps, OpenWeather, etc.).</p>
-    <p><em>Fonctionnement :</em> On envoie une requête à un serveur qui vous renvoie les données, généralement au format JSON ou XML.</p>
+    <p><em>Fonctionnement :</em> On envoie une requête à un serveur qui renvoie les données, généralement au format JSON ou XML.</p>
     <p><em>Outils :</em> Bibliothèque requests en Python, Postman pour tester les points de terminaison (endpoints).</p>
     <p><em>Avantage :</em> Les données sont déjà structurées et mises à jour en temps réel.</p>
 
     <h3>2. Le Web Scraping (Extraction de pages web)</h3>
     <p>Si les données sont visibles sur un site internet mais qu'aucune API n'est disponible, on utilise des scripts pour "lire" le code HTML.</p>
-    <p><em>Outils :</em></p>
-    <p>• BeautifulSoup : Idéal pour parser des pages statiques simples.</p>
-    <p>• Selenium ou Playwright : Pour simuler un comportement humain sur des sites dynamiques (clics, défilement, formulaires).</p>
-    <p><em>Attention :</em> On doit toujours consulter le fichier robots.txt du site pour respecter les règles d'éthique et de légalité.</p>
+    <p><em>Outils :</em> BeautifulSoup (pages statiques simples), Selenium ou Playwright (sites dynamiques).</p>
+    <p><em>Attention :</em> Il faut toujours vérifier le fichier robots.txt du site pour respecter les règles d'éthique et de légalité.</p>
 
     <h3>3. L'interrogation de Bases de Données (SQL)</h3>
     <p>Pour les données stockées en interne dans une entreprise ou une organisation.</p>
@@ -49,14 +47,14 @@
     <h3>1. Exploration initiale (Data Profiling)</h3>
     <p>Avant de nettoyer, il faut comprendre l'état de santé du dataset.</p>
     <p><em>Vérifier les types de données :</em> Est-ce qu'une colonne "Prix" est bien au format numérique et non en "Texte" ?</p>
-    <p><em>Calculer des statistiques rapides :</em> Utiliser des fonctions comme .describe() pour repérer des valeurs impossibles (ex: un âge de 200 ans ou un prix négatif).</p>
+    <p><em>Calculer des statistiques rapides :</em> Utiliser des fonctions comme .describe() pour repérer des valeurs impossibles (ex : un âge de 200 ans ou un prix négatif).</p>
     <p><em>Identifier le taux de remplissage :</em> Combien de données manquent par colonne ?</p>
 
     <h3>2. Traitement des valeurs manquantes (Missing Values)</h3>
     <p>Il existe trois stratégies principales selon l'importance de la donnée :</p>
-    <p><em>Suppression :</em> On retire la ligne ou la colonne si elle contient trop de vides (ex: plus de 50%).</p>
+    <p><em>Suppression :</em> On retire la ligne ou la colonne si elle contient trop de vides (ex : plus de 50%).</p>
     <p><em>Imputation statistique :</em> Remplacer le vide par la moyenne (données continues) ou le mode (données catégorielles).</p>
-    <p><em>Imputation métier :</em> Remplacer par une valeur fixe (ex: "Inconnu") ou utiliser des algorithmes plus complexes (KNN Imputer) pour prédire la valeur manquante.</p>
+    <p><em>Imputation métier :</em> Remplacer par une valeur fixe (ex : "Inconnu") ou utiliser des algorithmes plus complexes (KNN Imputer) pour prédire la valeur manquante.</p>
 
     <h3>3. Gestion des doublons (De-duplication)</h3>
     <p>Les doublons faussent les moyennes et les comptes totaux.</p>
@@ -77,8 +75,8 @@
 
     <h3>6. Validation finale</h3>
     <p>Une fois le nettoyage terminé, on fait un dernier test de cohérence :</p>
-    <p>• Le nombre de lignes restantes est-il suffisant pour l'analyse ?</p>
-    <p>• Les relations logiques sont-elles respectées ? (ex: la date de livraison doit être postérieure à la date de commande).</p>
+    <p><em>Le nombre de lignes restantes est-il suffisant pour l'analyse ?</em></p>
+    <p><em>Les relations logiques sont-elles respectées ?</em> (ex : la date de livraison doit être postérieure à la date de commande).</p>
 
     <h2>III/ L'ANALYSE</h2>
     <p>L'analyse de données est l'étape où vous transformez vos données nettoyées en connaissances exploitables. Elle se décompose généralement en trois niveaux de profondeur, allant de la simple description à la prédiction.</p>
@@ -91,15 +89,14 @@
 
     <h3>2. Analyse Exploratoire (EDA) : "Quelles sont les relations ?"</h3>
     <p>Ici, on cherche des corrélations et des segments intéressants à l'aide de la visualisation.</p>
-    <p><em>Analyse Univariée :</em> Observer une seule variable à la fois (ex: répartition par âge).</p>
-    <p><em>Analyse Bivariée :</em> Croiser deux variables pour voir si l'une influence l'autre (ex: lien entre le prix et la localisation).</p>
-    <p><em>Outil :</em> Le nuage de points (Scatter Plot) pour visualiser la corrélation.</p>
-    <p><em>Segmentation :</em> Regrouper les données par catégories (ex: zones urbaines vs zones rurales) pour comparer leurs comportements.</p>
+    <p><em>Analyse Univariée :</em> Observer une seule variable à la fois (ex : répartition par âge).</p>
+    <p><em>Analyse Bivariée :</em> Croiser deux variables pour voir si l'une influence l'autre (ex : lien entre le prix et la localisation). Outil : le nuage de points (Scatter Plot).</p>
+    <p><em>Segmentation :</em> Regrouper les données par catégories (ex : zones urbaines vs zones rurales) pour comparer leurs comportements.</p>
 
     <h3>3. Analyse Inférentielle et Modélisation : "Que va-t-il se passer ?"</h3>
     <p>On utilise des outils statistiques et mathématiques pour tirer des conclusions sur une population plus large ou pour anticiper le futur.</p>
     <p><em>Tests d'hypothèses :</em> Vérifier si une différence observée est statistiquement significative ou si elle est due au hasard (Test T, P-value).</p>
-    <p><em>Analyse de Régression :</em> Créer un modèle mathématique pour expliquer une variable par d'autres (ex: prédire le rendement en fonction de la pluviométrie).</p>
+    <p><em>Analyse de Régression :</em> Créer un modèle mathématique pour expliquer une variable par d'autres (ex : prédire le rendement en fonction de la pluviométrie).</p>
     <p><em>Analyse Spatiale :</em> Si vos données comportent des coordonnées, analysez la répartition géographique pour identifier des zones de concentration (Hotspots) ou des disparités territoriales.</p>
 
     <h3>4. Interprétation et Restitution</h3>
@@ -112,8 +109,7 @@
     <p>Si une boutique souhaite comprendre quels produits se vendent le mieux pour gérer ses stocks.</p>
     <p><em>Collecte :</em> Extraction des tickets de caisse mensuels depuis un fichier Excel ou une base de données de vente.</p>
     <p><em>Nettoyage :</em> Gestion des produits retournés (valeurs négatives), suppression des lignes de test et conversion de toutes les devises en une seule unité.</p>
-    <p><em>Analyse :</em> Calcul du chiffre d'affaires par catégorie et identification du "panier moyen" (montant moyen dépensé par client).</p>
-    <p><em>Résultat :</em> Un graphique montrant que 20 % des produits génèrent 80 % du profit (Loi de Pareto), permettant de stopper les produits non rentables.</p>
+    <p><em>Analyse :</em> Calcul du chiffre d'affaires par catégorie et identification du "panier moyen" (montant moyen dépensé par client). Résultat : un graphique montrant que 20% des produits génèrent 80% du profit (Loi de Pareto), permettant de stopper les produits non rentables.</p>
 
     <footer>
         <p>N'GUESSAN KASSI STEPHANE</p>
