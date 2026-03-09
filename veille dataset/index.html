@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Veille du 24</title>
+</head>
+<body>
+    <h1>COLLECTE, NETTOYAGE ET ANALYSE DES DONNÉES</h1>
+
+    <p class="intro">À l'ère du numérique, les données envahissent tous les secteurs : finance, santé, commerce, industrie. Face à ce déluge d'informations, savoir les collecter, les nettoyer et les analyser n'est plus un luxe réservé aux experts, mais une compétence incontournable pour toute organisation souhaitant rester compétitive.</p>
+
+    <h2>I/ LA COLLECTE</h2>
+    <p>La collecte de données est le socle de tout projet d'analyse. La méthode choisie dépend de la nature des données (structurées ou non) et de leur accessibilité. Voici les principales approches pour collecter efficacement un dataset :</p>
+
+    <h3>1. L'extraction via API (Application Programming Interface)</h3>
+    <p>C'est la méthode la plus fiable et la plus propre pour récupérer des données provenant de plateformes web (Twitter, Google Maps, OpenWeather, etc.).</p>
+    <p><em>Fonctionnement :</em> On envoie une requête à un serveur qui vous renvoie les données, généralement au format JSON ou XML.</p>
+    <p><em>Outils :</em> Bibliothèque requests en Python, Postman pour tester les points de terminaison (endpoints).</p>
+    <p><em>Avantage :</em> Les données sont déjà structurées et mises à jour en temps réel.</p>
+
+    <h3>2. Le Web Scraping (Extraction de pages web)</h3>
+    <p>Si les données sont visibles sur un site internet mais qu'aucune API n'est disponible, on utilise des scripts pour "lire" le code HTML.</p>
+    <p><em>Outils :</em></p>
+    <p>• BeautifulSoup : Idéal pour parser des pages statiques simples.</p>
+    <p>• Selenium ou Playwright : Pour simuler un comportement humain sur des sites dynamiques (clics, défilement, formulaires).</p>
+    <p><em>Attention :</em> On doit toujours consulter le fichier robots.txt du site pour respecter les règles d'éthique et de légalité.</p>
+
+    <h3>3. L'interrogation de Bases de Données (SQL)</h3>
+    <p>Pour les données stockées en interne dans une entreprise ou une organisation.</p>
+    <p><em>Fonctionnement :</em> Utilisation du langage SQL pour extraire des sous-ensembles de données spécifiques.</p>
+    <p><em>Logiciels :</em> PostgreSQL, MySQL, SQLite ou des outils de Business Intelligence comme BigQuery.</p>
+    <p><em>Cas d'usage :</em> Récupérer l'historique des ventes ou la liste des infrastructures d'une zone géographique.</p>
+
+    <h3>4. La Collecte de Données Terrain et IoT</h3>
+    <p>Parfois, la donnée n'existe pas encore et doit être créée à la source.</p>
+    <p><em>Enquêtes et Formulaires :</em> Utilisation d'outils comme Google Forms, KoboToolbox ou ODK (Open Data Kit) pour la saisie mobile.</p>
+    <p><em>Capteurs IoT :</em> Récupération automatique de mesures physiques (température, humidité, coordonnées GPS) via des réseaux comme LoRaWAN ou via des fichiers de logs.</p>
+    <p><em>Télédétection :</em> Téléchargement d'images satellites (via des plateformes comme Sentinel Hub ou Google Earth Engine) pour l'analyse environnementale.</p>
+
+    <h3>5. L'Open Data</h3>
+    <p>De nombreuses institutions mettent à disposition des datasets gratuits et certifiés.</p>
+    <p><em>Plateformes :</em> Kaggle (pour l'apprentissage), les portails gouvernementaux (data.gouv.fr), ou des dépôts institutionnels (Banque Mondiale, OMS).</p>
+
+    <h2>II/ LE NETTOYAGE</h2>
+    <p>Le nettoyage des données (ou Data Cleaning) est l'étape la plus cruciale : si vos données sont erronées, vos analyses le seront aussi. En Data Science, on appelle cela le principe du "Garbage In, Garbage Out". Voici les étapes méthodologiques pour nettoyer efficacement un dataset, généralement réalisées avec des outils comme Pandas (Python), OpenRefine ou Excel.</p>
+
+    <h3>1. Exploration initiale (Data Profiling)</h3>
+    <p>Avant de nettoyer, il faut comprendre l'état de santé du dataset.</p>
+    <p><em>Vérifier les types de données :</em> Est-ce qu'une colonne "Prix" est bien au format numérique et non en "Texte" ?</p>
+    <p><em>Calculer des statistiques rapides :</em> Utiliser des fonctions comme .describe() pour repérer des valeurs impossibles (ex: un âge de 200 ans ou un prix négatif).</p>
+    <p><em>Identifier le taux de remplissage :</em> Combien de données manquent par colonne ?</p>
+
+    <h3>2. Traitement des valeurs manquantes (Missing Values)</h3>
+    <p>Il existe trois stratégies principales selon l'importance de la donnée :</p>
+    <p><em>Suppression :</em> On retire la ligne ou la colonne si elle contient trop de vides (ex: plus de 50%).</p>
+    <p><em>Imputation statistique :</em> Remplacer le vide par la moyenne (données continues) ou le mode (données catégorielles).</p>
+    <p><em>Imputation métier :</em> Remplacer par une valeur fixe (ex: "Inconnu") ou utiliser des algorithmes plus complexes (KNN Imputer) pour prédire la valeur manquante.</p>
+
+    <h3>3. Gestion des doublons (De-duplication)</h3>
+    <p>Les doublons faussent les moyennes et les comptes totaux.</p>
+    <p><em>Doublons parfaits :</em> Lignes strictement identiques.</p>
+    <p><em>Doublons partiels :</em> Parfois, un identifiant est unique (ID client) mais les autres informations diffèrent légèrement suite à une erreur de saisie. Il faut alors définir une règle de priorité.</p>
+
+    <h3>4. Normalisation et Standardisation</h3>
+    <p>Il s'agit d'harmoniser le format des données pour qu'elles soient comparables.</p>
+    <p><em>Formatage du texte :</em> Tout mettre en minuscules, supprimer les espaces inutiles (" Abidjan" vs "Abidjan") et harmoniser les accents.</p>
+    <p><em>Formats de dates :</em> Convertir toutes les dates en format ISO (AAAA-MM-JJ) pour permettre les calculs temporels.</p>
+    <p><em>Unités de mesure :</em> S'assurer que toutes les distances sont en km et non en miles, par exemple.</p>
+    <p><em>Mapping :</em> Transformer "M." en "Monsieur" ou "F" en "Femme" pour une cohérence catégorielle.</p>
+
+    <h3>5. Détection des valeurs aberrantes (Outliers)</h3>
+    <p>Les valeurs extrêmes peuvent être des erreurs de saisie ou des événements exceptionnels qui biaisent l'analyse.</p>
+    <p><em>Méthode visuelle :</em> Utiliser un Boxplot (boîte à moustaches) pour voir les points situés hors des limites.</p>
+    <p><em>Méthode statistique :</em> Utiliser le Z-Score (nombre d'écarts-types par rapport à la moyenne) ou l'Interquartile Range (IQR).</p>
+
+    <h3>6. Validation finale</h3>
+    <p>Une fois le nettoyage terminé, on fait un dernier test de cohérence :</p>
+    <p>• Le nombre de lignes restantes est-il suffisant pour l'analyse ?</p>
+    <p>• Les relations logiques sont-elles respectées ? (ex: la date de livraison doit être postérieure à la date de commande).</p>
+
+    <h2>III/ L'ANALYSE</h2>
+    <p>L'analyse de données est l'étape où vous transformez vos données nettoyées en connaissances exploitables. Elle se décompose généralement en trois niveaux de profondeur, allant de la simple description à la prédiction.</p>
+
+    <h3>1. Analyse Descriptive : "Que s'est-il passé ?"</h3>
+    <p>C'est la base de toute étude. Elle consiste à résumer les caractéristiques principales de votre dataset.</p>
+    <p><em>Indicateurs de tendance centrale :</em> Calculer la moyenne, la médiane (pour éviter l'influence des valeurs extrêmes) et le mode (valeur la plus fréquente).</p>
+    <p><em>Indicateurs de dispersion :</em> L'écart-type et la variance pour savoir si vos données sont regroupées ou très étalées.</p>
+    <p><em>Distribution :</em> Analyser la forme des données (est-ce une courbe en cloche ou y a-t-il une forte concentration sur un segment précis ?).</p>
+
+    <h3>2. Analyse Exploratoire (EDA) : "Quelles sont les relations ?"</h3>
+    <p>Ici, on cherche des corrélations et des segments intéressants à l'aide de la visualisation.</p>
+    <p><em>Analyse Univariée :</em> Observer une seule variable à la fois (ex: répartition par âge).</p>
+    <p><em>Analyse Bivariée :</em> Croiser deux variables pour voir si l'une influence l'autre (ex: lien entre le prix et la localisation).</p>
+    <p><em>Outil :</em> Le nuage de points (Scatter Plot) pour visualiser la corrélation.</p>
+    <p><em>Segmentation :</em> Regrouper les données par catégories (ex: zones urbaines vs zones rurales) pour comparer leurs comportements.</p>
+
+    <h3>3. Analyse Inférentielle et Modélisation : "Que va-t-il se passer ?"</h3>
+    <p>On utilise des outils statistiques et mathématiques pour tirer des conclusions sur une population plus large ou pour anticiper le futur.</p>
+    <p><em>Tests d'hypothèses :</em> Vérifier si une différence observée est statistiquement significative ou si elle est due au hasard (Test T, P-value).</p>
+    <p><em>Analyse de Régression :</em> Créer un modèle mathématique pour expliquer une variable par d'autres (ex: prédire le rendement en fonction de la pluviométrie).</p>
+    <p><em>Analyse Spatiale :</em> Si vos données comportent des coordonnées, analysez la répartition géographique pour identifier des zones de concentration (Hotspots) ou des disparités territoriales.</p>
+
+    <h3>4. Interprétation et Restitution</h3>
+    <p>L'analyse n'est utile que si elle est comprise.</p>
+    <p><em>Le Storytelling :</em> Ne présentez pas juste des chiffres, racontez ce qu'ils signifient pour le projet.</p>
+    <p><em>Visualisation d'impact :</em> Utilisez des tableaux de bord (Dashboards) interactifs pour permettre une exploration visuelle fluide.</p>
+
+    <h2>IV/ CAS D'APPLICATION</h2>
+    <h3>Exemple : Suivi des ventes d'une boutique</h3>
+    <p>Si une boutique souhaite comprendre quels produits se vendent le mieux pour gérer ses stocks.</p>
+    <p><em>Collecte :</em> Extraction des tickets de caisse mensuels depuis un fichier Excel ou une base de données de vente.</p>
+    <p><em>Nettoyage :</em> Gestion des produits retournés (valeurs négatives), suppression des lignes de test et conversion de toutes les devises en une seule unité.</p>
+    <p><em>Analyse :</em> Calcul du chiffre d'affaires par catégorie et identification du "panier moyen" (montant moyen dépensé par client).</p>
+    <p><em>Résultat :</em> Un graphique montrant que 20 % des produits génèrent 80 % du profit (Loi de Pareto), permettant de stopper les produits non rentables.</p>
+
+    <footer>
+        <p>N'GUESSAN KASSI STEPHANE</p>
+        <p>2026</p>
+    </footer>
+</body>
+</html>
